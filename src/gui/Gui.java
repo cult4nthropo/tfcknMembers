@@ -3,11 +3,14 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -30,10 +33,8 @@ public class Gui extends JFrame {
 		pane.setLayout(new BorderLayout(1, 1));
 		//Menu
 		createMenuBar();
+		JPanel selectContent = createSelectionSideBar();
 		
-		JPanel selectContent = new JPanel();
-		selectContent.setLayout(new FlowLayout());
-		selectContent.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		JPanel header = new JPanel();
 		header.setLayout(new BorderLayout());
 		header.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -41,10 +42,10 @@ public class Gui extends JFrame {
 		JPanel graphics = new JPanel();
 		graphics.setLayout(null);
 		graphics.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-		pane.add(selectContent, BorderLayout.EAST);
-		pane.add(header, BorderLayout.NORTH);
-		pane.add(mainContent, BorderLayout.CENTER);
-		pane.add(graphics, BorderLayout.SOUTH);
+		pane.add(selectContent, BorderLayout.LINE_START);
+		pane.add(header, BorderLayout.PAGE_START);
+		//pane.add(mainContent, BorderLayout.CENTER);
+		pane.add(graphics, BorderLayout.PAGE_END);
 		
 		
 		
@@ -53,7 +54,9 @@ public class Gui extends JFrame {
 	 private JPanel createForm() {
 		 JPanel mainContent = new JPanel();
 			mainContent.setLayout(new FlowLayout());
+			mainContent.setPreferredSize(new Dimension(450, 500));
 			mainContent.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
 			JTextField id = new JTextField();
 			id.setBounds(126, 65, 20, 20);
 			id.setBorder(new TitledBorder("ID"));
@@ -169,4 +172,36 @@ public class Gui extends JFrame {
 			
 			return menu;
 	}
+
+	private JPanel createSelectionSideBar() {
+		JPanel selectContent = new JPanel();
+		selectContent.setLayout(new GridLayout());
+		selectContent.setPreferredSize(new Dimension(150, 500));
+		selectContent.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+		JCheckBox checkAll = new JCheckBox("Alles");
+		JCheckBox checkName = new JCheckBox("Vorname");
+		JCheckBox checkSurname = new JCheckBox("Nachname");
+		JCheckBox checkStreet = new JCheckBox("Straﬂe");
+		JCheckBox checkCity = new JCheckBox("Stadt");
+		JCheckBox checkCountry = new JCheckBox("Land");
+		JCheckBox checkBeginn = new JCheckBox("Eintritt");
+		JCheckBox checkEnd = new JCheckBox("Austritt");
+		JCheckBox checkPlayers = new JCheckBox("Turnier");
+		JCheckBox checkNotPayed = new JCheckBox("Ausstehende Beitr‰ge");
+		JCheckBox checkPaymentAmount = new JCheckBox("Beitr‰ge");
+		selectContent.add(checkAll);
+		selectContent.add(checkName);
+		selectContent.add(checkSurname);
+		selectContent.add(checkStreet);
+		selectContent.add(checkCity);
+		selectContent.add(checkCountry);
+		selectContent.add(checkBeginn);
+		selectContent.add(checkEnd);
+		selectContent.add(checkPlayers);
+		selectContent.add(checkNotPayed);
+		selectContent.add(checkPaymentAmount);
+		
+		return selectContent;
+	}
+
 }
