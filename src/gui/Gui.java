@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
+//import javafx.scene.control.DatePicker;
+
 public class Gui extends JFrame {
 
 	public Gui() {
@@ -114,7 +116,10 @@ public class Gui extends JFrame {
 		JComboBox<String> gender = new JComboBox<String>(genders);
 		gender.setBorder(new TitledBorder("Geschlecht"));
 		mainContent.add(gender);
-
+		/*
+		 * JFXPanel birthdayContainer = new JFXPanel(); DatePicker birthday = new
+		 * DatePicker(); mainContent.add(birthday);
+		 */
 		/**
 		 * TODO: Eine separate DatePicker Klasse, um eine Auswahl für jeweils
 		 * Geburtsdatum, Eintrittsdatum, Austrittsdatum zu haben Wichtig: Muss als
