@@ -76,7 +76,7 @@ public class Gui extends JFrame {
 
 		JTextField street = new JTextField();
 		street.setBounds(126, 157, 212, 40);
-		street.setBorder(new TitledBorder("Stra√üe"));
+		street.setBorder(new TitledBorder("Straﬂe"));
 		mainContent.add(street);
 		street.setColumns(20);
 
@@ -174,7 +174,7 @@ public class Gui extends JFrame {
 
 	private JPanel createSelectionSideBar() {
 		JPanel selectContent = new JPanel();
-		selectContent.setLayout(new GridLayout());
+		selectContent.setLayout(new GridLayout(11, 1));
 		selectContent.setPreferredSize(new Dimension(150, 500));
 		selectContent.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		JCheckBox checkAll = new JCheckBox("Alles");
@@ -185,7 +185,7 @@ public class Gui extends JFrame {
 		JCheckBox checkCountry = new JCheckBox("Land");
 		JCheckBox checkBeginn = new JCheckBox("Eintritt");
 		JCheckBox checkEnd = new JCheckBox("Austritt");
-		JCheckBox checkPlayers = new JCheckBox("Turnier");
+		JCheckBox checkPlayers = new JCheckBox("Spielernummer");
 		JCheckBox checkNotPayed = new JCheckBox("Ausstehende Beitr‰ge");
 		JCheckBox checkPaymentAmount = new JCheckBox("Beitr‰ge");
 		selectContent.add(checkAll);
